@@ -14,7 +14,7 @@ public class FoodStorageSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Oi");
+        System.out.println("Test");
     }
     
 }
