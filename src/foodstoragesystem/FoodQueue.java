@@ -22,19 +22,19 @@ public class FoodQueue {
           
         // Food name condition
         if (food == null) {
-            System.out.println("Invalid food item");
+            System.out.println("\nInvalid food item");
             return false;
         }
         
         // Number of items condition
         if (foods.size() >= MAX_CAPACITY){
-            System.out.println("Storage is full. Maximum capacity is 8.");
+            System.out.println("\nStorage is full. Maximum capacity is 8.");
             return false;
         }
         
         // Food weight condition
         if (food.getWeight() <= 0){
-            System.out.println("Weight must be greater than zero");
+            System.out.println("\nWeight must be greater than zero");
             return false;
         }
         
@@ -46,7 +46,7 @@ public class FoodQueue {
         if (bestBefore == null
                 || bestBefore.isBefore(today)
                 || bestBefore.isAfter(today.plusWeeks(2))){
-            System.out.println("Best-before date must be between today and two weeks from today.");
+            System.out.println("\nBest-before date must be between today and two weeks from today.");
             return false;
         }
         
@@ -60,7 +60,7 @@ public class FoodQueue {
     public FoodItem removeFood() {
         
         if (foods.isEmpty()) {
-            System.out.println("Storage is empty. Nothing to remove.");
+            System.out.println("\nStorage is empty. Nothing to remove.");
             return null;
         }
         
@@ -74,7 +74,7 @@ public class FoodQueue {
     public FoodItem peekFood() {
         
         if (foods.isEmpty()) {
-            System.out.println("Storage is empty. Nothing to display.");
+            System.out.println("\nStorage is empty. Nothing to display.");
             return null;
         }
         
@@ -88,7 +88,7 @@ public class FoodQueue {
         FoodItem food = peekFood();
         
         if (food != null) {
-            System.out.println("First food in queue: " + food.getName());
+            System.out.println("\nFirst food in queue: " + food.getName());
         }    
     }
     
@@ -96,7 +96,7 @@ public class FoodQueue {
     public FoodItem searchFood(String name) {
         
         if (name == null || name.trim().isEmpty()) {
-            System.out.println("Please enter a valid food name.");
+            System.out.println("\nPlease enter a valid food name.");
             return null;
         }
         
