@@ -19,6 +19,7 @@ public class FoodStorageSystem {
     
     public static void main(String[] args) {
         
+        // Keeps the program running until the user chooses to exit
         boolean running = true;
         
         System.out.println("Welcome to Food Storage System!");
@@ -75,6 +76,7 @@ public class FoodStorageSystem {
       
     }
     
+    // Collects food information, validates the input and sends the item to the queue
     private static void addFood() {
         
         System.out.println("\nAvailable food types:");
@@ -83,6 +85,7 @@ public class FoodStorageSystem {
         
         String name = scanner.nextLine().trim();
         
+        // Checks whether the name matches one of the five allowed food types
         if (!isValidFoodName(name)) {
             System.out.println("\nInvalid food type. Please try again.");
             return;
@@ -93,6 +96,8 @@ public class FoodStorageSystem {
         
         int weight;
         
+        // Converts the weight from text to an integer
+        // The try-catch prevents the program from crashing if the input is not a whole number
         try {
             weight = Integer.parseInt(weightInput);
         } catch (NumberFormatException e) {
@@ -100,6 +105,7 @@ public class FoodStorageSystem {
             return;
         }
         
+        // Rejects zero or negative weights because food must have a positive weight
         if (weight <= 0) {
             System.out.println("\nWeight must be greater than zero.");
             return;
@@ -117,6 +123,7 @@ public class FoodStorageSystem {
             return;
         }
         
+        // Create a FoodItem object using the validated information
         FoodItem food = new FoodItem(name, weight, bestBefore);
         
         if (foodQueue.addFood(food)) {
@@ -125,6 +132,7 @@ public class FoodStorageSystem {
     
     }
     
+    // Removes the first food item according to the FIFO principle
     private static void removeFood() {
         
         FoodItem food = foodQueue.removeFood();
@@ -134,6 +142,7 @@ public class FoodStorageSystem {
             displayFoodDetails(food);
         }
     }
+    
     
     private static void searchFood() {
         
